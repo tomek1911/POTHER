@@ -1,0 +1,103 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "justMyCode": false,
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Main Default",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/POTHER/main.py",
+            "console": "integratedTerminal",
+            "args": ["--epochs", "50", "--use_patch", "--lr", "1e-4",
+                     "--bs", "8", "--save", "--comet", "--log_img"]
+        },
+        {
+            "name": "Python: Inference",
+            "type": "python",
+            "justMyCode": false,
+            "request": "launch", 
+            "program": "${workspaceFolder}/POTHER/inference.py",
+            "console": "integratedTerminal",
+            "args": ["--use_patch",
+                     "--workers", "12", "--trained_model", "models/14-01-2022_14-12-13/resnet50_ep_50.pth",
+                     "--bs", "12", "--votes_count", "50", "--use_reduced_draw"]
+        },
+        {
+            "name": "Python: Visualize",
+            "type": "python",
+            "justMyCode": false,
+            "request": "launch", 
+            "program": "${workspaceFolder}/MultitaskCXR/visualise.py",
+            "console": "integratedTerminal",
+            "args": ["--use_patch", "--input_size", "224", "--patch_base", "40", "--use_reduced_draw",
+                     "--workers", "12", "--trained_model", "models/14-01-2022_14-12-13/resnet50_ep_40.pth",
+                     "--bs", "12", "--visualise",
+                     "--votes_count", "6", "--equ_dataset",
+                     "--device", "-1"
+                    ]
+                    },
+        {
+            "name": "Python: Sample args - 2 class",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/POTHER/main.py",
+            "console": "integratedTerminal",
+            "args": ["--dataset", "bimcv", "--classes_num", "2", "--model", "resnet50", "--workers", "4", "--bs", "4", "--lr", "1e-4", "--input_size", "224", 
+                    "--epochs", "50",
+                    "--comet", "--log_freq", "25", "--log_img", "--log_img_freq", "100", "--save",
+                    "--use_patch", "--non_zero_mask_draw", "--patch_base", "40",
+                    "--device", "0",
+                    "--norm_features", "--use_attention", "--experimental_head", 
+                    "--T2", "--ptr"
+            ]
+        },
+        {
+            "name": "Python: Sample args - 3 classes",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/POTHER/main.py",
+            "console": "integratedTerminal",
+            "args": ["--model", "resnet50", "--workers", "8", "--bs", "16", "--lr", "1e-4", "--input_size", "224", 
+                    "--epochs", "3", "--weights", "ens",
+                    "--ptr",
+                    "--comet", "--log_freq", "25", "--log_img", "--log_img_freq", "100", "--save", "--save_interval", "3",
+                    "--use_patch", "--use_reduced_draw","--patch_base", "56", "--device", "0",
+                    "--equ_dataset", "--validation",
+                    "--device", "0",
+                    "--norm_features", "--use_attention", "--experimental_head", "--T2"
+                ]
+        },
+        {
+            "name": "Python: global training",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/POTHER/main.py",
+            "console": "integratedTerminal",
+            "args": ["--model", "resnet50", "--workers", "8", "--bs", "16", "--lr", "1e-4", "--input_size", "224", 
+                    "--epochs", "50", "--weights", "ens", "--ens_beta", "0.998", "--log_freq", "20",
+                    "--save","--save_interval", "5",
+                    "--equ_dataset", "--validation",
+                    "--device", "0",
+                    "--ptr",
+                    "--classes_num", "3"
+                ]
+        },
+        {
+            "name": "Python: Sample args - 4 classes",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/POTHER/main.py",
+            "console": "integratedTerminal",
+            "args": ["--model", "resnet18", "--workers", "8", "--bs", "16", "--lr", "2e-4", "--input_size", "224", 
+                     "--epochs", "50", "--comet","--log_freq", "10", "--log_img", "--log_img_freq", "50", "--weights", "ens", "--classes_num", "4",
+                     "--dataset_csv", "csv_files/v7darwin_dataset_4_classes.csv"]
+        }
+    ]
+}
