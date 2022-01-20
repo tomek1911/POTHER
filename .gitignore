@@ -1,0 +1,9 @@
+.DS_Store
+.ipynb_checkpoints
+.vs
+.vscode
+__pycache__/
+
+*.zip
+*.pth
+*.png
