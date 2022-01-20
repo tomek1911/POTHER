@@ -3,6 +3,8 @@ import torch.nn as nn
 from torchvision import models
 from torch.nn import functional as F
 
+# U-Net: Ronneberger O., Fischer P., Brox T. (2015) U-Net: Convolutional Networks for Biomedical Image Segmentation. In: Navab N., Hornegger J., Wells W., Frangi A. (eds) Medical Image Computing and Computer-Assisted Intervention – MICCAI 2015. MICCAI 2015. Lecture Notes in Computer Science, vol 9351. Springer, Cham. https://doi.org/10.1007/978-3-319-24574-4_28
+# Inception: Szegedy, C., Wei Liu, Yangqing Jia, Sermanet, P., Reed, S., Anguelov, D., Erhan, D., Vanhoucke, V., Rabinovich, A.: Going deeper with convolutions. In: 2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR). pp. 1–9. IEEE, Boston, MA, USA (2015). https://doi.org/10.1109/CVPR.2015.7298594.
 
 def get_backbone(name, pretrained=True):
 
@@ -432,8 +434,6 @@ class ClassificatonHead(nn.Module):
 ##                                                 UNET                                              ##
 #######################################################################################################
 class Unet(nn.Module):
-
-    """ U-Net (https://arxiv.org/pdf/1505.04597.pdf)."""
 
     def __init__(self,
                  backbone_name='resnet50',
