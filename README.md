@@ -1,6 +1,6 @@
 # POTHER: Patch-Voted Deep Learning-based Chest X-ray Bias Analysis for COVID-19 Detection
 
-Source code related to the article submitted to the International Conference on Computational Science ICCS 2022 in London.
+Source code related to the article accepted to the International Conference on Computational Science ICCS 2022 in London.
 
 
 ## Abstract
